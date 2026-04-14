@@ -13,6 +13,15 @@ window.addEventListener('load', () => {
     closeSearch.addEventListener('click', () => {
         navContainer.classList.remove('active-search');
         searchInput.value = '';
+        items.forEach(item => item.style.display = 'inline-block');
+    });
+
+    searchInput.addEventListener('input', (e) => {
+        const term = e.target.value.toLowerCase();
+        items.forEach(item => {
+            const altText = item.querySelector('img').alt.toLowerCase();
+            item.style.display = altText.includes(term) ? 'inline-block' : 'none';
+        });
     });
 
     items.forEach((item, index) => {
