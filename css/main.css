@@ -130,9 +130,9 @@ body {
 .portfolio-container {
   column-count: 3;
   column-gap: 15px;
-  padding: 15px;
+  padding: 0 15px 15px 15px;
   max-width: 1400px;
-  margin: 40px auto 0 auto;
+  margin: 0 auto;
   position: relative;
   z-index: 5;
   background: #fafafa;
@@ -255,6 +255,6 @@ body {
 
 @media (max-width: 500px) {
   .portfolio-container { column-count: 1; }
-  .hero-header h1 { font-size: 2rem; letter-spacing: 0.2rem; transform: scaleX(1.1); }
+  .hero-header h1 { font-size: 2.2rem; letter-spacing: 0.5rem; transform: scaleX(1.1); width: 90%; }
   .nav-links { gap: 15px; }
 }
