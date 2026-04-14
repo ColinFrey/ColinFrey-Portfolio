@@ -128,6 +128,7 @@ body {
 }
 
 .portfolio-container {
+  display: block;
   column-count: 3;
   column-gap: 15px;
   padding: 0 15px 15px 15px;
@@ -139,13 +140,18 @@ body {
 }
 
 .masonry-item {
-  display: block;
+  display: inline-block;
   width: 100%;
   margin-bottom: 15px;
   break-inside: avoid;
   border-radius: 8px;
   overflow: hidden;
   background: #eee;
+}
+
+.wide-item {
+  column-span: all;
+  margin: 20px 0;
 }
 
 .masonry-item img {
@@ -257,4 +263,5 @@ body {
   .portfolio-container { column-count: 1; }
   .hero-header h1 { font-size: 2.2rem; letter-spacing: 0.5rem; transform: scaleX(1.1); width: 90%; }
   .nav-links { gap: 15px; }
+  .wide-item { column-span: none; margin: 15px 0; }
 }
