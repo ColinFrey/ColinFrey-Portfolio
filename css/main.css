@@ -132,7 +132,7 @@ body {
   column-count: 3;
   column-gap: 15px;
   padding: 0 15px 15px 15px;
-  max-width: 1400px;
+  max-width: 100%;
   margin: 0 auto;
   position: relative;
   z-index: 5;
@@ -147,11 +147,6 @@ body {
   border-radius: 8px;
   overflow: hidden;
   background: #eee;
-}
-
-.wide-item {
-  column-span: all;
-  margin: 20px 0;
 }
 
 .masonry-item img {
@@ -170,7 +165,7 @@ body {
   bottom: 0;
   height: 100vh;
   z-index: 1;
-  background: #fff;
+  background: #000;
 }
 
 .about-container {
@@ -182,14 +177,14 @@ body {
 }
 
 .about-content {
-  background: white;
+  background: #000;
   width: 100%;
   max-width: 1000px;
   display: flex;
   align-items: center;
   padding: 60px;
   border-radius: 8px;
-  border: 1px solid #eee;
+  border: 1px solid #333;
 }
 
 .about-text {
@@ -201,11 +196,12 @@ body {
   font-size: 2.5rem;
   margin-bottom: 20px;
   text-transform: uppercase;
+  color: #fff;
 }
 
 .about-text p {
   line-height: 1.8;
-  color: #555;
+  color: #ccc;
   font-size: 1.1rem;
 }
 
@@ -214,7 +210,7 @@ body {
   height: 450px;
   border-radius: 8px;
   overflow: hidden;
-  background: #eee;
+  background: #222;
 }
 
 .about-image img {
@@ -263,5 +259,4 @@ body {
   .portfolio-container { column-count: 1; }
   .hero-header h1 { font-size: 2.2rem; letter-spacing: 0.5rem; transform: scaleX(1.1); width: 90%; }
   .nav-links { gap: 15px; }
-  .wide-item { column-span: none; margin: 15px 0; }
 }
