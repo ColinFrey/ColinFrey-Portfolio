@@ -3,48 +3,70 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Portfolio | Colin Frey</title>
-  <meta name="description" content="Portfolio hub with responsive masonry layout">
+  <title>Colin Frey | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Notable&family=Shrikhand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
 
-  <header style="text-align: center; padding: 50px 0 20px 0;">
-    <h1>Portfolio</h1>
+  <header class="hero-header">
+    <h1 class="notable-regular">Colin Frey</h1>
   </header>
+
+  <nav class="main-nav">
+    <div class="nav-container" id="navContainer">
+      <div class="nav-links" id="navLinks">
+        <a href="#">Gallery</a>
+        <a href="#">About</a>
+        <a href="#contact">Contact</a>
+        <button class="search-trigger" id="searchTrigger">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+
+      <div class="search-wrapper" id="searchWrapper">
+        <div class="search-box">
+          <input type="text" placeholder="Search projects..." id="searchInput">
+          <button class="close-search" id="closeSearch">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
 
   <main class="portfolio-container">
     <div class="masonry-item"><img src="img/Abandoned.JPG" alt="Abandoned"></div>
     <div class="masonry-item"><img src="img/Ancient.JPG" alt="Ancient"></div>
     <div class="masonry-item"><img src="img/BlueHeron.jpg" alt="Blue Heron"></div>
-    
     <div class="masonry-item"><img src="img/Dinosour.jpg" alt="Dinosaur"></div>
     <div class="masonry-item"><img src="img/Entrapped.JPG" alt="Entrapped"></div>
-    
     <div class="masonry-item"><img src="img/Grape.jpeg" alt="Grape"></div>
     <div class="masonry-item"><img src="img/HangGlider.JPG" alt="Hang Glider"></div>
     <div class="masonry-item"><img src="img/Hawk.JPG" alt="Hawk"></div>
-    
     <div class="masonry-item"><img src="img/LifeCycle.JPG" alt="Life Cycle"></div>
     <div class="masonry-item"><img src="img/MuhraPortrait.jpeg" alt="Muhra Portrait"></div>
     <div class="masonry-item"><img src="img/NativePortrait.jpeg" alt="Native Portrait"></div>
-    
     <div class="masonry-item"><img src="img/PatiencePortrait.jpg" alt="Patience Portrait"></div>
     <div class="masonry-item"><img src="img/RootedEmbrace.JPG" alt="Rooted Embrace"></div>
     <div class="masonry-item"><img src="img/SchoolBus.JPG" alt="School Bus"></div>
-    
     <div class="masonry-item"><img src="img/Shower.JPG" alt="Shower"></div>
     <div class="masonry-item"><img src="img/SunEater.jpeg" alt="Sun Eater"></div>
     <div class="masonry-item"><img src="img/Swamp.jpeg" alt="Swamp"></div>
-    
     <div class="masonry-item"><img src="img/TheOx.jpg" alt="The Ox"></div>
     <div class="masonry-item"><img src="img/Underwater.jpeg" alt="Underwater"></div>
-    
-    </main>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <p>Contact</p>
+    <a href="mailto:hello@colinfrey.com">hello@colinfrey.com</a>
+  </footer>
 
   <script src="js/main.js"></script>
 </body>
