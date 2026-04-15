@@ -4,6 +4,7 @@ body {
   margin: 0;
   color: #333;
   overflow-x: hidden;
+  font-size: 16px;
 }
 
 .notable-regular {
@@ -26,7 +27,7 @@ body {
 }
 
 .hero-header h1 {
-  font-size: clamp(2rem, 8vw, 5.5rem); 
+  font-size: clamp(2.5rem, 8vw, 5.5rem); 
   margin: 0;
   padding: 0 20px;
   letter-spacing: 1.5rem; 
@@ -41,7 +42,7 @@ body {
   top: 0;
   background: #fafafa;
   z-index: 1000;
-  height: 70px;
+  height: 80px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #eee;
@@ -69,7 +70,7 @@ body {
   text-decoration: none;
   color: #333;
   text-transform: uppercase;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: 2px;
 }
@@ -78,7 +79,7 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .search-wrapper {
@@ -114,7 +115,7 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   padding: 5px;
 }
 
@@ -130,8 +131,8 @@ body {
 .portfolio-container {
   display: block;
   column-count: 3;
-  column-gap: 15px;
-  padding: 0 15px 15px 15px;
+  column-gap: 20px;
+  padding: 40px 20px;
   max-width: 100%;
   margin: 0 auto;
   position: relative;
@@ -142,11 +143,12 @@ body {
 .masonry-item {
   display: inline-block;
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   break-inside: avoid;
   border-radius: 8px;
   overflow: hidden;
   background: #eee;
+  cursor: pointer;
 }
 
 .masonry-item img {
@@ -193,7 +195,7 @@ body {
 }
 
 .about-text h2 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-bottom: 20px;
   text-transform: uppercase;
   color: #fff;
@@ -202,7 +204,7 @@ body {
 .about-text p {
   line-height: 1.8;
   color: #ccc;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .about-image {
@@ -220,24 +222,64 @@ body {
 }
 
 .site-footer {
+  background: #000;
+  color: #fff;
+  padding: 120px 20px 60px 20px;
   position: relative;
   z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-columns {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  gap: 120px;
+  margin-bottom: 80px;
+}
+
+.footer-column {
+  flex: 0 1 auto;
   text-align: center;
-  padding: 80px 20px;
-  background: #fff;
-  border-top: 1px solid #eee;
 }
 
-.site-footer p {
-  text-transform: uppercase;
-  font-weight: 700;
+.footer-column h4 {
+  font-size: 1rem;
   letter-spacing: 2px;
-  margin-bottom: 10px;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 25px;
 }
 
-.site-footer a {
-  color: #666;
+.footer-column a, .footer-column p {
+  display: block;
+  color: #fff;
   text-decoration: none;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: #aaa;
+}
+
+.footer-bottom {
+  width: 100%;
+  max-width: 1200px;
+  border-top: 1px solid #222;
+  padding-top: 40px;
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  color: #444;
+  text-transform: uppercase;
 }
 
 .modal {
@@ -314,14 +356,14 @@ body {
   font-family: "Notable", sans-serif;
   text-transform: uppercase;
   margin-top: 0;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   margin-bottom: 20px;
 }
 
 .detail-item {
   line-height: 1.6;
   color: #555;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 @media (max-width: 1100px) {
@@ -337,6 +379,7 @@ body {
   .about-content { flex-direction: column-reverse; padding: 40px; text-align: center; }
   .about-text { padding-right: 0; margin-top: 30px; }
   .about-image { flex: 0 0 300px; width: 300px; height: 300px; }
+  .footer-columns { gap: 60px; }
 }
 
 @media (max-width: 800px) {
@@ -345,6 +388,14 @@ body {
   .modal-details { border-left: none; border-top: 1px solid #eee; padding: 30px; }
   .modal-image-container { flex: none; height: 50vh; cursor: default; }
   .modal-image-container img { transition: none; transform: scale(1) !important; }
+}
+
+@media (max-width: 768px) {
+  .footer-columns {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
 }
 
 @media (max-width: 500px) {
