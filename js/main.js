@@ -32,7 +32,7 @@ function filterProjects(query) {
   existingMatches.forEach(match => match.remove());
   
   if (query.trim() === '') {
-    resultsSection.style.display = 'none';
+    resultsSection.classList.remove('active');
     return;
   }
 
@@ -55,9 +55,15 @@ function filterProjects(query) {
   });
 
   if (matchCount > 0) {
-    resultsSection.style.display = 'block';
+    if (!resultsSection.classList.contains('active')) {
+      resultsSection.classList.add('active');
+      window.scrollTo({
+        top: resultsSection.offsetTop - 80,
+        behavior: 'smooth'
+      });
+    }
   } else {
-    resultsSection.style.display = 'none';
+    resultsSection.classList.remove('active');
   }
 }
 
