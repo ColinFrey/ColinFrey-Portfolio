@@ -48,6 +48,7 @@ body {
   transform-origin: center; 
   width: 100%;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .main-nav {
@@ -428,12 +429,17 @@ body {
   .hero-header h1 {
     font-size: 3.5rem;
     letter-spacing: 0.8rem;
+    transform: scaleX(1.2);
   }
 }
 
 @media (max-width: 900px) {
   .portfolio-container, #searchResultsSection { column-count: 2; }
-  .hero-header h1 { font-size: 2.8rem; letter-spacing: 0.5rem; }
+  .hero-header h1 { 
+    font-size: 2.8rem; 
+    letter-spacing: 0.5rem; 
+    transform: scaleX(1.1);
+  }
   .about-content { padding: 30px; text-align: center; }
   .footer-columns { gap: 30px; }
   .footer-column { border-left: none; }
@@ -460,7 +466,11 @@ body {
 
 @media (max-width: 768px) {
   .hero-header { height: 20vh; }
-  .hero-header h1 { font-size: 2.5rem; letter-spacing: 0.4rem; }
+  .hero-header h1 { 
+    font-size: 2.2rem; 
+    letter-spacing: 0.3rem; 
+    transform: scaleX(1);
+  }
   .nav-links { gap: 20px; }
   .footer-columns {
     flex-direction: column;
@@ -472,5 +482,9 @@ body {
 @media (max-width: 500px) {
   .portfolio-container, #searchResultsSection { column-count: 1; }
   .nav-links { gap: 12px; }
+  .hero-header h1 {
+    font-size: 1.8rem;
+    letter-spacing: 0.2rem;
+  }
   .results-title { letter-spacing: 0.5rem; transform: scaleX(1.1); }
 }
