@@ -80,6 +80,7 @@ function openModal(item) {
 
   modal.style.display = 'flex';
   document.body.style.overflow = 'hidden';
+  closeModal.focus();
 }
 
 masonryItems.forEach(item => {
