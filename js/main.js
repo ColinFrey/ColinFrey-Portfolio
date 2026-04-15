@@ -1,85 +1,66 @@
-window.addEventListener('load', () => {
-    const items = document.querySelectorAll('.masonry-item');
-    const modal = document.getElementById('artModal');
-    const modalImg = document.getElementById('modalImg');
-    const modalImgContainer = document.getElementById('modalImgContainer');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalDescription = document.getElementById('modalDescription');
-    const closeModal = document.querySelector('.close-modal');
-    const navContainer = document.getElementById('navContainer');
-    const searchTrigger = document.getElementById('searchTrigger');
-    const closeSearch = document.getElementById('closeSearch');
-    const searchInput = document.getElementById('searchInput');
+const modal = document.getElementById('artModal');
+const modalImg = document.getElementById('modalImg');
+const modalTitle = document.getElementById('modalTitle');
+const modalDescription = document.getElementById('modalDescription');
+const closeModal = document.querySelector('.close-modal');
+const masonryItems = document.querySelectorAll('.masonry-item');
 
-    items.forEach(item => {
-        item.style.cursor = 'pointer';
-        item.addEventListener('click', () => {
-            const img = item.querySelector('img');
-            const description = item.getAttribute('data-description');
-            
-            modalImg.src = img.src;
-            modalTitle.innerText = img.alt;
-            modalDescription.innerText = description || "";
-            
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        });
-    });
+const searchTrigger = document.getElementById('searchTrigger');
+const closeSearch = document.getElementById('closeSearch');
+const searchWrapper = document.getElementById('searchWrapper');
+const searchInput = document.getElementById('searchInput');
 
-    modalImgContainer.addEventListener('mousemove', (e) => {
-        const { left, top, width, height } = modalImgContainer.getBoundingClientRect();
-        const x = ((e.clientX - left) / width) * 100;
-        const y = ((e.clientY - top) / height) * 100;
+searchTrigger.addEventListener('click', () => {
+  searchWrapper.classList.add('active');
+  searchInput.focus();
+});
 
-        modalImg.style.transformOrigin = `${x}% ${y}%`;
-        modalImg.style.transform = "scale(2.5)";
-    });
+closeSearch.addEventListener('click', () => {
+  searchWrapper.classList.remove('active');
+  searchInput.value = '';
+  filterProjects('');
+});
 
-    modalImgContainer.addEventListener('mouseleave', () => {
-        modalImg.style.transform = "scale(1)";
-        modalImg.style.transformOrigin = "center";
-    });
+searchInput.addEventListener('input', (e) => {
+  filterProjects(e.target.value.toLowerCase());
+});
 
-    const closeAndReset = () => {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-        modalImg.style.transform = "scale(1)";
-    };
+function filterProjects(query) {
+  masonryItems.forEach(item => {
+    const title = item.getAttribute('data-title').toLowerCase();
+    if (title.includes(query)) {
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
 
-    closeModal.addEventListener('click', closeAndReset);
+masonryItems.forEach(item => {
+  item.addEventListener('click', () => {
+    const img = item.querySelector('img');
+    const title = item.getAttribute('data-title');
+    const year = item.getAttribute('data-year');
+    const medium = item.getAttribute('data-medium');
 
-    window.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            closeAndReset();
-        }
-    });
+    modalImg.src = img.src;
+    modalImg.alt = title;
+    modalTitle.textContent = title;
+    modalDescription.textContent = year + " | " + medium;
 
-    searchTrigger.addEventListener('click', () => {
-        navContainer.classList.add('active-search');
-        searchInput.focus();
-    });
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  });
+});
 
-    closeSearch.addEventListener('click', () => {
-        navContainer.classList.remove('active-search');
-        searchInput.value = '';
-        items.forEach(item => item.style.display = 'inline-block');
-    });
+closeModal.addEventListener('click', () => {
+  modal.style.display = 'none';
+  document.body.style.overflow = 'auto';
+});
 
-    searchInput.addEventListener('input', (e) => {
-        const term = e.target.value.toLowerCase();
-        items.forEach(item => {
-            const altText = item.querySelector('img').alt.toLowerCase();
-            item.style.display = altText.includes(term) ? 'inline-block' : 'none';
-        });
-    });
-
-    items.forEach((item, index) => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(30px)';
-        item.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
-        setTimeout(() => {
-            item.style.opacity = '1';
-            item.style.transform = 'translateY(0)';
-        }, 100 * index);
-    });
+window.addEventListener('click', (event) => {
+  if (event.target === modal) {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
 });
