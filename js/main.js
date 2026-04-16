@@ -14,6 +14,20 @@ const resultsSection = document.getElementById('searchResultsSection');
 
 let isZoomed = false;
 
+function createHoverBanner(item) {
+  const title = item.getAttribute('data-title');
+  const medium = item.getAttribute('data-medium');
+  const banner = document.createElement('div');
+  banner.className = 'hover-banner';
+  banner.innerHTML = `<strong>${title}</strong> | ${medium}`;
+  item.appendChild(banner);
+}
+
+masonryItems.forEach(item => {
+  createHoverBanner(item);
+  item.addEventListener('click', () => openModal(item));
+});
+
 searchTrigger.addEventListener('click', () => {
   searchWrapper.classList.add('active');
   searchInput.focus();
@@ -89,10 +103,6 @@ function openModal(item) {
   
   closeModal.focus();
 }
-
-masonryItems.forEach(item => {
-  item.addEventListener('click', () => openModal(item));
-});
 
 modalImgContainer.addEventListener('click', (e) => {
   if (window.innerWidth > 800) {
