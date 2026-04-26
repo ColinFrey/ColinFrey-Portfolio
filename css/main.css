@@ -151,6 +151,7 @@ body {
 }
 
 #searchResultsSection {
+  display: none;
   background: #232a21; 
   padding: 0 15px;
   border-bottom: 1px solid #1a1f18;
@@ -169,6 +170,7 @@ body {
 }
 
 #searchResultsSection.active {
+  display: block;
   max-height: 2000px;
   opacity: 1;
   padding: 40px 15px;
